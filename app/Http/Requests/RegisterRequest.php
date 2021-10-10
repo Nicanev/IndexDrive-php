@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required|numeric',
+            'phone' => 'required|numeric|unique:users',
             'birth_date' => 'required',
             'passport_series' => 'required|numeric',
             'passport_number' => 'required|numeric',

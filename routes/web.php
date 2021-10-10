@@ -28,6 +28,8 @@ Route::get('/register', function () {
 Route::get('/branches', function () {
     return view('branches');
 })->name('branches');
-Route::get('/register/all', [RegisterContoller::class, 'allData'])->name('register-data');
+
 Route::post('/register/submit', [RegisterContoller::class, 'submit'])->name('register-form');
+Route::get('/register/all', [RegisterContoller::class, 'allUsers']);
+
 
