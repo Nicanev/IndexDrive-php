@@ -48,7 +48,8 @@ class RegisterRequest extends FormRequest
             'passport_number.required' => 'Поле номер паспорта является обязательным',
             'passport_series.numeric' => 'Поле серия паспорта должно состоять из цифр.',
             'passport_number' => 'Поле номер паспорта должно состоять из цифр',
-            'patronymic.required' => 'Поле отчество является обязательным.'
+            'patronymic.required' => 'Поле отчество является обязательным.',
+            'phone.unique' => 'Этот телефон уже был использован.'
         ];
     }
 }

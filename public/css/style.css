@@ -833,6 +833,8 @@ body {
   margin-top: 60px;
   font-weight: bold;
   font-size: 24px;
+  width: 280px;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 605px) {
@@ -1119,4 +1121,16 @@ body {
 .alert ul {
     padding:20px;
     padding-left:40px;
+}
+
+.login__btn button {
+    background: #379DFB;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    width: 457px;
+    height: 55px;
+    cursor: pointer;
 }

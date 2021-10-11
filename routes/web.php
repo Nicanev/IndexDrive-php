@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterContoller;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +14,7 @@ Route::get('/booking', function () {
     return view('booking');
 })->name('booking');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
+
 
 Route::get('/login', function () {
     return view('login');
@@ -31,5 +30,7 @@ Route::get('/branches', function () {
 
 Route::post('/register/submit', [RegisterContoller::class, 'submit'])->name('register-form');
 Route::get('/register/all', [RegisterContoller::class, 'allUsers']);
-
+Route::post('/login/submit', [LoginController::class, 'login'])->name('login-form');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
 

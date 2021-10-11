@@ -7,7 +7,7 @@
     <main class="main">
         <div class="profile">
             <div class="container">
-                <a href="{{route('login')}}"><input type="button" class="exitBtn" value="Выйти"></a>
+                <a href="{{route('logout')}}"><input type="button" class="exitBtn" value="Выйти"></a>
                 <div class="profile__content">
                     <div class="profile__left">
                         <div class="profile__title">Личный кабинет
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="profile__right">
-                        <div class="profile__name">Иван Иванов Иванович</div>
+                        <div class="profile__name">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }} {{ auth()->user()->patronymic }}</div>
                         <div class="profile__scrores">94.4</div>
 
                         <div class="profile__countbooking">

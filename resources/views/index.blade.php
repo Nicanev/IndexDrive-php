@@ -20,7 +20,16 @@
                                 <a href="/booking" class="nav__link">БРОНИРОВАНИЕ</a>
                             </li>
                             <li class="nav__item">
-                                <a href="/login" class="nav__link">ЛИЧНЫЙ КАБИНЕТ</a>
+                                @guest()
+                                    <a href="/login" class="nav__link"
+                                    >ЛИЧНЫЙ КАБИНЕТ</a
+                                    >
+                                @endguest
+                                @auth()
+                                    <a href="/profile" class="nav__link"
+                                    >ЛИЧНЫЙ КАБИНЕТ</a
+                                    >
+                                @endauth
                             </li>
                         </ul>
                     </nav>
