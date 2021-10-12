@@ -30,7 +30,9 @@ class RegisterContoller extends Controller
 
     public function store(UserStoreRequest $request) {
 
-        return User::create($request->all());
+        return User::create([
+            'password' => Hash::make($request->password)
+        ] + $request->all());
     }
 
 

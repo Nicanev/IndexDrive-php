@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('passport_series');
             $table->integer('passport_number');
             $table->string('password');
+            $table->string('api_token')->nullable();
             $table->timestamps();
         });
     }
