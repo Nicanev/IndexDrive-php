@@ -8,22 +8,24 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\Profile;
 
 class RegisterContoller extends Controller
 {
     public function submit(RegisterRequest $req) {
-        $contact = new User();
-        $contact->first_name = $req->input('first_name');
-        $contact->last_name = $req->input('last_name');
-        $contact->patronymic = $req->input('patronymic');
-        $contact->phone = $req->input('phone');
-        $contact->birth_date = $req->input('birth_date');
-        $contact->passport_series = $req->input('passport_series');
-        $contact->passport_number = $req->input('passport_number');
-        $contact->password = Hash::make($req->input('password'));
+        $user = new User();
+        $profile = new Profile();
+        $user->first_name = $req->input('first_name');
+        $user->last_name = $req->input('last_name');
+        $user->patronymic = $req->input('patronymic');
+        $user->phone = $req->input('phone');
+        $user->birth_date = $req->input('birth_date');
+        $user->passport_series = $req->input('passport_series');
+        $user->passport_number = $req->input('passport_number');
+        $user->password = Hash::make($req->input('password'));
 
-       $contact->save();
+        $user->save();
+        $user->profile()->save($profile);
 
         return redirect()->route('login');
     }

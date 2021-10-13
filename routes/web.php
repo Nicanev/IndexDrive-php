@@ -34,3 +34,5 @@ Route::post('/login/submit', [LoginController::class, 'login'])->name('login-for
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
 
+
+

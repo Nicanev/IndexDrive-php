@@ -33,7 +33,7 @@
                             <div class="register__inputField"><input name="passport_number" id="passport_number" type="text" placeholder="Номер паспорта"></div>
                             <div class="register__inputField"><input name="passport_series" id="passport_series" type="text" placeholder="Серия паспорта"></div>
                             <div class="register__inputField"><input name="phone" id="phone" type="tel" placeholder="Телефон"></div>
-                            <div class="register__inputField"><input name="birth_date" id="birth_date" type="text" placeholder="Дата рождения"></div>
+                            <div class="register__inputField"><input name="birth_date" id="birth_date" type="date" placeholder="Дата рождения"></div>
                             <div class="register__inputField"><input name='password' id="password" type="password" placeholder="Пароль"></div>
                             <input type="submit" id="submit" class="btnInput" value="Регистрация">
                         </form>

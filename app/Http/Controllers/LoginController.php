@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ApiLoginRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -29,7 +31,9 @@ class LoginController extends Controller
         if(Auth::user() === null)
             return redirect()->route('login');
 
-        return view('profile');
+        $rate=DB::table('profiles')->where('id', auth()->user()->id)->value('rate');
+        $bookings=DB::table('profiles')->where('id', auth()->user()->id)->value('bookings');
+        return view('profile', ['rate' => $rate, 'bookings' => $bookings]);
     }
 
     public function apiLogin(ApiLoginRequest $request) {
@@ -47,5 +51,16 @@ class LoginController extends Controller
         return [
             'phone' => 'Phone or password incorrect.'
         ];
+    }
+
+    public function getRate() {
+        $rate=DB::table('profiles')->where('id', auth()->user()->id)->value('rate');
+        $bookings=DB::table('profiles')->where('id', auth()->user()->id)->value('bookings');
+        return view('profile', ['rate' => $rate, 'bookings' => $bookings]);
+    }
+
+    public function bookingsNum() {
+        $bookings=DB::table('profiles')->where('id', auth()->user()->id)->value('bookings');
+        return view('profile', ['bookings' => $bookings]);
     }
 }
