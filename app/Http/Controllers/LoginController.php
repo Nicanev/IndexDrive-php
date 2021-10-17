@@ -53,14 +53,4 @@ class LoginController extends Controller
         ];
     }
 
-    public function getRate() {
-        $rate=DB::table('profiles')->where('id', auth()->user()->id)->value('rate');
-        $bookings=DB::table('profiles')->where('id', auth()->user()->id)->value('bookings');
-        return view('profile', ['rate' => $rate, 'bookings' => $bookings]);
-    }
-
-    public function bookingsNum() {
-        $bookings=DB::table('profiles')->where('id', auth()->user()->id)->value('bookings');
-        return view('profile', ['bookings' => $bookings]);
-    }
 }

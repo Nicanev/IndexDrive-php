@@ -15,8 +15,9 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('booking_clients_id')->constrained('booking_clients')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->integer('bookings')->default(0);
+            $table->integer('history_bookings')->default(0);
             $table->decimal('rate', 4, 2)->default(0.00);
 
             $table->timestamps();
